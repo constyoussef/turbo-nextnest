@@ -2,22 +2,18 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type User {
+type AuthPayload {
   id: Int!
   name: String!
   email: String!
-  password: String!
-  bio: String
   avatar: String
-  posts: [Post!]!
-  comments: [CommentEntity!]!
+  accessToken: String!
 }
 
-type CommentEntity {
+type Tag {
   id: Int!
-  content: String!
-  author: User!
-  post: Post!
+  name: String!
+  posts: [Post!]!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -27,12 +23,15 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
-type Tag {
+type User {
   id: Int!
   name: String!
+  email: String!
+  password: String!
+  bio: String
+  avatar: String
   posts: [Post!]!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  comments: [CommentEntity!]!
 }
 
 type Post {
@@ -49,13 +48,22 @@ type Post {
   updatedAt: DateTime!
 }
 
+type CommentEntity {
+  id: Int!
+  content: String!
+  author: User!
+  post: Post!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
 type Query {
   post: [Post!]!
 }
 
 type Mutation {
   createUser(createUserInput: CreateUserInput!): User!
-  signIn(signInInput: SignInInput!): String!
+  signIn(signInInput: SignInInput!): AuthPayload!
 }
 
 input CreateUserInput {
