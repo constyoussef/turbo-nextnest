@@ -1,5 +1,5 @@
-import { DesktopNavbar } from "@/components/layout/desktop-navbar";
-import { Navbar } from "@/components/layout/navbar";
+import { Navbar } from "@/components/layout/navbar/navbar";
+import { NavbarContainer } from "@/components/layout/navbar/navbar-container";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
@@ -23,9 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={` ${geistMono.className} bg-gray-50`}>
-        <DesktopNavbar>
+        <NavbarContainer>
           <Navbar />
-        </DesktopNavbar>
+        </NavbarContainer>
         {children}
       </body>
     </html>

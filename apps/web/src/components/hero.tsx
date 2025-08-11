@@ -2,14 +2,14 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <div className="bg-gradient-to-br from-sky-500 to-indigo-500 pt-12 text-white">
+    <div className="bg-gradient-to-br from-sky-500 to-indigo-500 pt-24 text-white lg:pt-12">
       <div className="container mx-auto flex flex-col flex-wrap items-center px-3 md:flex-row">
         {/* Left Column */}
-        <div className="flex w-full flex-col items-start justify-center text-center md:w-2/5 md:text-left">
-          <p className="w-full tracking-wide text-purple-900 capitalize">
+        <div className="flex w-full flex-col justify-center text-center md:w-2/5 md:text-left lg:items-start">
+          <p className="pcapitalize w-full tracking-wide text-black">
             Explore insights, tutorials, and stories for curious minds.
           </p>
-          <h2 className="mb-5 text-6xl leading-tight font-bold">
+          <h2 className="mb-5 text-5xl leading-tight font-bold lg:text-6xl">
             Welcome to Turbo Nest Next Blog 🚀
           </h2>
           <p className="text-xl leading-normal capitalize">
