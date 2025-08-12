@@ -1,5 +1,3 @@
-import { Navbar } from "@/components/layout/navbar/navbar";
-import { NavbarContainer } from "@/components/layout/navbar/navbar-container";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
@@ -22,12 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${geistMono.className}`}>
-        <NavbarContainer>
-          <Navbar />
-        </NavbarContainer>
-        {children}
-      </body>
+      <body className={` ${geistMono.className}`}>{children}</body>
     </html>
   );
 }
