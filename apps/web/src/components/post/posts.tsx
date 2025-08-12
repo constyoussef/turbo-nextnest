@@ -1,11 +1,14 @@
+import { CostomPagination } from "@/components/costom-pagination";
 import { Post } from "@/types/modal.type";
 import { PostCard } from "./post-card";
 
 interface PostsProps {
   posts: Post[];
+  page: number;
+  count: number;
 }
 
-export function Posts({ posts }: PostsProps) {
+export function Posts({ posts, page, count }: PostsProps) {
   return (
     <section className="container m-8 mx-auto max-w-6xl">
       <h2 className="text-center text-5xl leading-tight font-bold text-gray-600">
@@ -16,6 +19,9 @@ export function Posts({ posts }: PostsProps) {
         {posts.map((post) => (
           <PostCard key={post.id} {...post} />
         ))}
+      </div>
+      <div className="my-10">
+        <CostomPagination currentPage={page ? +page : 1} totalPages={count} />
       </div>
     </section>
   );

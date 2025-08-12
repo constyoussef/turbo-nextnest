@@ -22,7 +22,7 @@ async function main() {
   }
 
   // 2. Create users
-  const usersData = Array.from({ length: 15 }).map(() => ({
+  const usersData = Array.from({ length: 100 }).map(() => ({
     name: faker.person.fullName(),
     email: faker.internet.email(),
     password: faker.internet.password(), // In a real app, you would hash this
@@ -37,7 +37,7 @@ async function main() {
   const userIds = users.map((user) => user.id);
 
   // 3. Create tags
-  const tagsData = Array.from({ length: 10 }).map(() => ({
+  const tagsData = Array.from({ length: 100 }).map(() => ({
     name: faker.word.noun(),
   }));
   await prisma.tag.createMany({ data: tagsData });
@@ -47,7 +47,7 @@ async function main() {
   // const tagIds = tags.map((tag) => tag.id);
 
   // 4. Create posts
-  const postsData = Array.from({ length: 25 }).map(() => {
+  const postsData = Array.from({ length: 250 }).map(() => {
     const title = faker.lorem.sentence();
     const slug = title
       .toLowerCase()
@@ -86,7 +86,7 @@ async function main() {
   console.log('Connected posts and tags.');
 
   // 6. Create comments
-  const commentsData = Array.from({ length: 50 }).map(() => ({
+  const commentsData = Array.from({ length: 500 }).map(() => ({
     content: faker.lorem.sentence(),
     published: faker.datatype.boolean(),
     postId: faker.helpers.arrayElement(postIds),

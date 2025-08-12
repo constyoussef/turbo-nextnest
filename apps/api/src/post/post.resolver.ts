@@ -1,4 +1,4 @@
-import { Query, Resolver } from '@nestjs/graphql';
+import { Args, Int, Query, Resolver } from '@nestjs/graphql';
 import { Post } from './entities/post.entity';
 import { PostService } from './post.service';
 
@@ -8,7 +8,17 @@ export class PostResolver {
 
   // @UseGuards(JwtAuthGuard)
   @Query(() => [Post], { name: 'posts' })
-  findAll() {
-    return this.postService.findAll();
+  findAll(
+    @Args('skip', { type: () => Number, nullable: true })
+    skip: number,
+    @Args('take', { type: () => Number, nullable: true })
+    take: number,
+  ) {
+    return this.postService.findAll({ skip, take });
+  }
+
+  @Query(() => Int, { name: 'postCount' })
+  count() {
+    return this.postService.count();
   }
 }
