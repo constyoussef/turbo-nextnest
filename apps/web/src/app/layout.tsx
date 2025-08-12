@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${geistMono.className} bg-gray-50`}>
+      <body className={` ${geistMono.className}`}>
         <NavbarContainer>
           <Navbar />
         </NavbarContainer>
