@@ -58,7 +58,7 @@ type CommentEntity {
 }
 
 type Query {
-  post: [Post!]!
+  posts: [Post!]!
 }
 
 type Mutation {
