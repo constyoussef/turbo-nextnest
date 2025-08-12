@@ -11,6 +11,7 @@ import Link from "next/link";
 type PostCardProps = Partial<Post>;
 
 export function PostCard({
+  id,
   slug,
   title,
   content,
@@ -47,7 +48,7 @@ export function PostCard({
           {content ?? "No content available."}
         </CardDescription>
         <Link
-          href={`/posts/${slug}`}
+          href={`/posts/${slug}/${id}`}
           className="mt-4 block text-blue-600 hover:underline"
         >
           Read More
