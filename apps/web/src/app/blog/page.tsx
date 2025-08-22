@@ -16,13 +16,13 @@ export default async function Blog({ searchParams }: HomeProps) {
   });
 
   return (
-    <div>
+    <>
       <Hero />
       <Posts
         posts={posts}
         count={Math.ceil(count / DEFAULT_PAGE_SIZE)}
         page={page ? +page : 1}
       />
-    </div>
+    </>
   );
 }
